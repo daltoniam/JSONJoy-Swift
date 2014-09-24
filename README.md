@@ -1,13 +1,14 @@
-JSONJoy-Swift
+JSONJoy
 =============
 
-Convert JSON to Swift objects. The Objective-C counterpart can be found here: [JSONJoy](https://github.com/daltoniam/JSONJoy). 
+Convert JSON to Swift objects. The Objective-C counterpart can be found here: [JSONJoy](https://github.com/daltoniam/JSONJoy).
 
-Parsing JSON in Swift has be likened to a trip through Mordor, then JSONJoy is the eagles to that trip. 
+Parsing JSON in Swift has be likened to a trip through Mordor, then JSONJoy would be using eagles for that trip.
 
-## Example ##
+## Example
 
 First here is some example JSON we have to parse.
+
 ```javascript
 {
     "id" : 1
@@ -24,6 +25,7 @@ First here is some example JSON we have to parse.
 
 }
 ```
+
 We want to translate that JSON to these Swift objects:
 
 ```swift
@@ -34,7 +36,7 @@ struct Address {
     var state: String?
     var postalCode: String?
     init() {
-        
+
     }
 }
 
@@ -45,7 +47,7 @@ struct User {
     var age: Int?
     var address = Address()
     init() {
-        
+
     }
 }
 ```
@@ -78,7 +80,7 @@ struct Address : JSONJoy {
     var state: String?
     var postalCode: String?
     init() {
-        
+
     }
     init(_ decoder: JSONDecoder) {
         objID = decoder["id"].integer
@@ -106,6 +108,7 @@ struct User : JSONJoy {
     }
 }
 ```
+
 Then when we get the JSON back:
 
 ```swift
@@ -122,7 +125,7 @@ firstName = decoder[5]["wrongKey"]["MoreWrong"].string
 //firstName is nil, but no crashing!
 ```
 
-## SwiftHTTP 
+## SwiftHTTP
 
 This can be combined with SwiftHTTP to make API interaction really clean and easy.
 
@@ -130,16 +133,26 @@ This can be combined with SwiftHTTP to make API interaction really clean and eas
 //Finish serializer and example.
 ```
 
-## Requirements ##
+## Requirements
 
 JSONJoy requires at least iOS 7/OSX 10.10 or above.
 
+## Installation
 
-## License ##
+Add the `JSONJoy.xcodeproj` to your Xcode project. Once that is complete, in your "Build Phases" add the `JSONJoy.framework` to your "Link Binary with Libraries" phase.
 
-JSONJoy is license under the Apache License.
+## TODOs
 
-## Contact ##
+- [ ] Complete Docs
+- [ ] Add Unit Tests
+- [ ] Add Example Project
+- [ ] Add Swallow Installation Docs
+
+## License
+
+JSONJoy is licensed under the Apache v2 License.
+
+## Contact
 
 ### Dalton Cherry ###
 * https://github.com/daltoniam
