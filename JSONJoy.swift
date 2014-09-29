@@ -12,7 +12,7 @@ import Foundation
 public class JSONDecoder {
     var value: AnyObject?
     
-    //convert the value to a string
+    //convert the value to a String
     public var string: String? {
         return value as? String
     }
@@ -20,11 +20,11 @@ public class JSONDecoder {
     public var integer: Int? {
         return value as? Int
     }
-    //convert the value to an Double
+    //convert the value to a Double
     public var double: Double? {
         return value as? Double
     }
-    //convert the value to an float
+    //convert the value to a float
     public var float: Float? {
         return value as? Float
     }
@@ -32,7 +32,15 @@ public class JSONDecoder {
     public var error: NSError? {
         return value as? NSError
     }
-    //get  the values out of an array
+    //get  the value if it is a dictonary
+    public var dictonary: Dictionary<String,JSONDecoder>? {
+        return value as? Dictionary<String,JSONDecoder>
+    }
+    //get  the value if it is an array
+    public var array: Array<JSONDecoder>? {
+        return value as? Array<JSONDecoder>
+    }
+    //pull the raw values out of an array
     public func array<T>(inout collect: Array<T>?) {
         if let array = value as? Array<JSONDecoder> {
             if collect == nil {
@@ -45,7 +53,7 @@ public class JSONDecoder {
             }
         }
     }
-    //get the values out of a dictonary.
+    //pull the raw values out of a dictonary.
     public func dictonary<T>(inout collect: Dictionary<String,T>?) {
         if let dictonary = value as? Dictionary<String,JSONDecoder> {
             if collect == nil {
