@@ -9,38 +9,38 @@
 
 import Foundation
 
-class JSONDecoder {
+public class JSONDecoder {
     var value: AnyObject?
     
     //convert the value to a string
-    var string: String? {
+    public var string: String? {
         return value as? String
     }
     //convert the value to an Int
-    var integer: Int? {
+    public var integer: Int? {
         return value as? Int
     }
     //convert the value to an Double
-    var double: Double? {
+    public var double: Double? {
         return value as? Double
     }
     //convert the value to an float
-    var float: Float? {
+    public var float: Float? {
         return value as? Float
     }
     //get  the value if it is an array
-    var array: Array<JSONDecoder>? {
+    public var array: Array<JSONDecoder>? {
         return value as? Array<JSONDecoder>
     }
     //get  the value if it is an dictonary
-    var dictonary: Dictionary<String,JSONDecoder>? {
+    public var dictonary: Dictionary<String,JSONDecoder>? {
         return value as? Dictionary<String,JSONDecoder>
     }
     //get  the value if it is an error
-    var error: NSError? {
+    public var error: NSError? {
         return value as? NSError
     }
-    init(_ raw: AnyObject) {
+    public init(_ raw: AnyObject) {
         var rawObject: AnyObject = raw
         if let data = rawObject as? NSData {
             var error: NSError?
@@ -68,7 +68,7 @@ class JSONDecoder {
         }
     }
     //Array access support
-    subscript(index: Int) -> JSONDecoder {
+    public subscript(index: Int) -> JSONDecoder {
         get {
             if let array = self.value as? NSArray {
                 if array.count > index {
@@ -79,7 +79,7 @@ class JSONDecoder {
         }
     }
     //Dictionary access support
-    subscript(key: String) -> JSONDecoder {
+    public subscript(key: String) -> JSONDecoder {
         get {
             if let dict = self.value as? NSDictionary {
                 if let value: AnyObject = dict[key] {
@@ -95,6 +95,6 @@ class JSONDecoder {
 }
 
 //Implement this protocol on all objects you want to use JSONJoy with
-protocol JSONJoy {
+public protocol JSONJoy {
     init(_ decoder: JSONDecoder)
 }
