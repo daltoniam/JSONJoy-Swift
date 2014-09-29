@@ -28,18 +28,37 @@ public class JSONDecoder {
     public var float: Float? {
         return value as? Float
     }
-    //get  the value if it is an array
-    public var array: Array<JSONDecoder>? {
-        return value as? Array<JSONDecoder>
-    }
-    //get  the value if it is an dictonary
-    public var dictonary: Dictionary<String,JSONDecoder>? {
-        return value as? Dictionary<String,JSONDecoder>
-    }
     //get  the value if it is an error
     public var error: NSError? {
         return value as? NSError
     }
+    //get  the values out of an array
+    public func array<T>(inout collect: Array<T>?) {
+        if let array = value as? Array<JSONDecoder> {
+            if collect == nil {
+                collect = Array<T>()
+            }
+            for decoder in array {
+                if let obj = decoder.value as? T {
+                    collect?.append(obj)
+                }
+            }
+        }
+    }
+    //get the values out of a dictonary.
+    public func dictonary<T>(inout collect: Dictionary<String,T>?) {
+        if let dictonary = value as? Dictionary<String,JSONDecoder> {
+            if collect == nil {
+                collect = Dictionary<String,T>()
+            }
+            for (key,decoder) in dictonary {
+                if let obj = decoder.value as? T {
+                    collect?[key] = obj
+                }
+            }
+        }
+    }
+    //the init that converts everything to something nice
     public init(_ raw: AnyObject) {
         var rawObject: AnyObject = raw
         if let data = rawObject as? NSData {
