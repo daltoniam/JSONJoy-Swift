@@ -125,6 +125,67 @@ firstName = decoder[5]["wrongKey"]["MoreWrong"].string
 //firstName is nil, but no crashing!
 ```
 
+## Array and Dictionary support
+
+There is two ways to access Arrays and Dictionary. The first is the convenience methods.
+
+```javascript
+{
+    "scopes" : ["Bakersfield", "California", "USA"]
+}
+```
+
+Now for the Swift object.
+```swift
+struct Scopes : JSONJoy {
+    var scopes: Array<String>?
+    init() {
+    }
+    init(_ decoder: JSONDecoder) {
+         decoder.array(&scopes) //pass the optional array by reference, it will be allocated if it is not and filled
+    }
+}	
+```
+
+The second option is useful for embedded objects.
+
+```javascript
+{
+	"addresses": [
+	{
+        "id": 1
+        "street_address": "2nd Street",
+        "city": "Bakersfield",
+        "state": "CA",
+        "postal_code": 93309
+     },
+     {
+        "id": 2
+        "street_address": "2nd Street",
+        "city": "Dallas",
+        "state": "TX",
+        "postal_code": 12345
+     }]
+}
+```
+
+```swift
+struct Addresses : JSONJoy {
+    var addresses: Array<Address>?
+    init() {
+    }
+    init(_ decoder: JSONDecoder) {
+		//we check if the array is valid then alloc our array and loop through it, creating the new address objects. 
+		if decoder["addresses"].array {
+			addresses = Array<Address>()
+			for address in decoder["addresses"].array {
+				addresses.append(Address(address))
+			}	
+		}
+    }
+}	
+```
+
 ## SwiftHTTP
 
 This can be combined with SwiftHTTP to make API interaction really clean and easy.
