@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Vluxe. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for JSONJoy.
 FOUNDATION_EXPORT double JSONJoyVersionNumber;
