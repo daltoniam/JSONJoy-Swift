@@ -207,7 +207,7 @@ Add the `JSONJoy.xcodeproj` to your Xcode project. Once that is complete, in you
 - [ ] Complete Docs
 - [ ] Add Unit Tests
 - [ ] Add Example Project
-- [ ] Add Swallow Installation Docs
+- [ ] Add Rouge Installation Docs
 
 ## License
 
