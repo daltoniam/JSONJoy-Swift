@@ -190,9 +190,7 @@ struct Addresses : JSONJoy {
 
 This can be combined with SwiftHTTP to make API interaction really clean and easy.
 
-```swift
-//Finish serializer and example.
-```
+https://github.com/daltoniam/SwiftHTTP#clientserver-example
 
 ## Requirements
 
