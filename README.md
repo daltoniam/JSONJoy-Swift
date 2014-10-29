@@ -142,7 +142,7 @@ struct Scopes : JSONJoy {
     init() {
     }
     init(_ decoder: JSONDecoder) {
-         decoder.array(&scopes) //pass the optional array by reference, it will be allocated if it is not and filled
+         decoder.getArray(&scopes) //pass the optional array by reference, it will be allocated if it is not and filled
     }
 }	
 ```
@@ -176,10 +176,10 @@ struct Addresses : JSONJoy {
     }
     init(_ decoder: JSONDecoder) {
 		//we check if the array is valid then alloc our array and loop through it, creating the new address objects. 
-		if decoder["addresses"].array {
+		if let addrs = decoder["addresses"].array {
 			addresses = Array<Address>()
-			for address in decoder["addresses"].array {
-				addresses.append(Address(address))
+			for addrDecoder in addrs {
+				addresses.append(Address(addrDecoder))
 			}	
 		}
     }
