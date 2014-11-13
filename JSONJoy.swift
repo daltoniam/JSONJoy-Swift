@@ -28,8 +28,8 @@ public class JSONDecoder {
     public var float: Float? {
         return value as? Float
     }
-    //convert the value to a bool
-    public var bool: Bool? {
+    //treat the value as a bool
+    public var bool: Bool {
         if let str = self.string {
             let lower = str.lowercaseString
             if lower == "true" || lower.toInt() > 0 {
@@ -42,7 +42,7 @@ public class JSONDecoder {
         } else if let num = self.float {
             return num > 0.99
         }
-        return value as? Bool
+        return false
     }
     //get  the value if it is an error
     public var error: NSError? {
