@@ -28,12 +28,28 @@ public class JSONDecoder {
     public var float: Float? {
         return value as? Float
     }
+    //conver the value to a bool
+    public var bool: Bool? {
+        if let str = self.string {
+            let lower = str.lowercaseString
+            if lower == "true" || lower.toInt() > 0 {
+                return true
+            }
+        } else if let num = self.integer {
+            return num > 0
+        } else if let num = self.double {
+            return num > 0.99
+        } else if let num = self.float {
+            return num > 0.99
+        }
+        return false
+    }
     //get  the value if it is an error
     public var error: NSError? {
         return value as? NSError
     }
-    //get  the value if it is a dictonary
-    public var dictonary: Dictionary<String,JSONDecoder>? {
+    //get  the value if it is a dictionary
+    public var dictionary: Dictionary<String,JSONDecoder>? {
         return value as? Dictionary<String,JSONDecoder>
     }
     //get  the value if it is an array
@@ -53,13 +69,13 @@ public class JSONDecoder {
             }
         }
     }
-    //pull the raw values out of a dictonary.
-    public func getDictonary<T>(inout collect: Dictionary<String,T>?) {
-        if let dictonary = value as? Dictionary<String,JSONDecoder> {
+    //pull the raw values out of a dictionary.
+    public func getDictionary<T>(inout collect: Dictionary<String,T>?) {
+        if let dictionary = value as? Dictionary<String,JSONDecoder> {
             if collect == nil {
                 collect = Dictionary<String,T>()
             }
-            for (key,decoder) in dictonary {
+            for (key,decoder) in dictionary {
                 if let obj = decoder.value as? T {
                     collect?[key] = obj
                 }
