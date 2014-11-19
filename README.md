@@ -5,6 +5,8 @@ Convert JSON to Swift objects. The Objective-C counterpart can be found here: [J
 
 Parsing JSON in Swift has be likened to a trip through Mordor, then JSONJoy would be using eagles for that trip.
 
+Also check out this [article](http://vluxe.io/jsonjoy.html) for more information and examples.
+
 ## Example
 
 First here is some example JSON we have to parse.
