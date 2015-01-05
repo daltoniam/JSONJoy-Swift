@@ -7,6 +7,15 @@ Parsing JSON in Swift has be likened to a trip through Mordor, then JSONJoy woul
 
 Also check out this [article](http://vluxe.io/jsonjoy.html) for more information and examples.
 
+First thing is to import the framework. See the Installation instructions on how to add the framework to your project.
+
+```swift
+//iOS
+import JSONJoy
+//OS X
+import JSONJoyOSX
+```
+
 ## Example
 
 First here is some example JSON we have to parse.
@@ -200,6 +209,34 @@ JSONJoy requires at least iOS 7/OSX 10.10 or above.
 
 ## Installation
 
+### Cocoapods
+
+```
+Coming soon...(Hopefully!)
+```
+
+### Carthage
+
+Check out the [Carthage](https://github.com/Carthage/Carthage) docs on how to add a install. The `JSONJoy` framework is already setup with shared schemes.
+
+[Carthage Install](https://github.com/Carthage/Carthage#adding-frameworks-to-an-application)
+
+### Rogue
+
+First see the [installation docs](https://github.com/acmacalister/Rogue) for how to install Rogue.
+
+To install JSONJoy run the command below in the directory you created the rogue file.
+
+```
+rogue add https://github.com/daltoniam/JSONJoy-Swift
+```
+
+Next open the `libs` folder and add the `JSONJoy.xcodeproj` to your Xcode project. Once that is complete, in your "Build Phases" add the `JSONJoy.framework` to your "Link Binary with Libraries" phase. Make sure to add the `libs` folder to your `.gitignore` file.
+
+### Other
+
+Simply grab the framework (either via git submodule or another package manager).
+
 Add the `JSONJoy.xcodeproj` to your Xcode project. Once that is complete, in your "Build Phases" add the `JSONJoy.framework` to your "Link Binary with Libraries" phase.
 
 ## TODOs
@@ -207,7 +244,6 @@ Add the `JSONJoy.xcodeproj` to your Xcode project. Once that is complete, in you
 - [ ] Complete Docs
 - [ ] Add Unit Tests
 - [ ] Add Example Project
-- [ ] Add [Rouge](https://github.com/acmacalister/Rouge) Installation Docs
 
 ## License
 
