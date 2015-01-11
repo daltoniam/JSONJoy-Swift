@@ -22,7 +22,7 @@ First here is some example JSON we have to parse.
 
 ```javascript
 {
-    "id" : 1
+    "id" : 1,
     "first_name": "John",
     "last_name": "Smith",
     "age": 25,
