@@ -155,7 +155,7 @@ struct Scopes : JSONJoy {
     init(_ decoder: JSONDecoder) {
          decoder.getArray(&scopes) //pass the optional array by reference, it will be allocated if it is not and filled
     }
-}	
+}
 ```
 
 The second option is useful for embedded objects.
@@ -186,22 +186,22 @@ struct Addresses : JSONJoy {
     init() {
     }
     init(_ decoder: JSONDecoder) {
-		//we check if the array is valid then alloc our array and loop through it, creating the new address objects. 
+		//we check if the array is valid then alloc our array and loop through it, creating the new address objects.
 		if let addrs = decoder["addresses"].array {
 			addresses = Array<Address>()
 			for addrDecoder in addrs {
 				addresses.append(Address(addrDecoder))
-			}	
+			}
 		}
     }
-}	
+}
 ```
 
-## SwiftHTTP
+## JSONJoy
 
-This can be combined with SwiftHTTP to make API interaction really clean and easy.
+This can be combined with JSONJoy to make API interaction really clean and easy.
 
-https://github.com/daltoniam/SwiftHTTP#clientserver-example
+https://github.com/daltoniam/JSONJoy#clientserver-example
 
 ## Requirements
 
@@ -211,7 +211,7 @@ JSONJoy requires at least iOS 7/OSX 10.10 or above.
 
 ### Cocoapods
 
-### [CocoaPods](http://cocoapods.org/) 
+### [CocoaPods](http://cocoapods.org/)
 At this time, Cocoapods support for Swift frameworks is supported in a [pre-release](http://blog.cocoapods.org/Pod-Authors-Guide-to-CocoaPods-Frameworks/).
 
 To use JSONJoy in your project add the following 'Podfile' to your project
@@ -237,11 +237,11 @@ You can validate JSONJoy-Swift.podspec using:
     pod spec lint JSONJoy-Swift.podspec
 
 This should be tested with a sample project before releasing it. This can be done by adding the following line to a ```Podfile```:
-    
+
     pod 'JSONJoy-Swift', :git => 'https://github.com/username/JSONJoy-Swift.git'
 
 Then run:
-    
+
     pod install
 
 If all goes well you are ready to release. First, create a tag and push:
@@ -276,6 +276,10 @@ Next open the `libs` folder and add the `JSONJoy.xcodeproj` to your Xcode projec
 Simply grab the framework (either via git submodule or another package manager).
 
 Add the `JSONJoy.xcodeproj` to your Xcode project. Once that is complete, in your "Build Phases" add the `JSONJoy.framework` to your "Link Binary with Libraries" phase.
+
+### Add Copy Frameworks Phase
+
+If you are running this in an OSX app or on a physical iOS device you will need to make sure you add the `JSONJoy.framework` or `JSONJoyOSX.framework` to be included in your app bundle. To do this, in Xcode, navigate to the target configuration window by clicking on the blue project icon, and selecting the application target under the "Targets" heading in the sidebar. In the tab bar at the top of that window, open the "Build Phases" panel. Expand the "Link Binary with Libraries" group, and add `JSONJoy.framework` or `JSONJoyOSX.framework` depending on if you are building an iOS or OSX app. Click on the + button at the top left of the panel and select "New Copy Files Phase". Rename this new phase to "Copy Frameworks", set the "Destination" to "Frameworks", and add `JSONJoy.framework` or `JSONJoyOSX.framework` respectively.
 
 ## TODOs
 
