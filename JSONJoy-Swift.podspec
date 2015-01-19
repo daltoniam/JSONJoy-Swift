@@ -7,5 +7,6 @@ Pod::Spec.new do |s|
   s.author       = {'Dalton Cherry' => 'http://daltoniam.com'}
   s.source       = { :git => 'https://github.com/daltoniam/JSONJoy-Swift.git',  :tag => '0.9.1'}
   s.platform     = :ios, 8.0
+  s.module_name = "JSONJoy"
   s.source_files = '*.{h,swift}'
 end
