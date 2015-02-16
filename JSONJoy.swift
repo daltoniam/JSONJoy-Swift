@@ -103,7 +103,7 @@ public class JSONDecoder {
         } else if let dict = rawObject as? NSDictionary {
             var collect = Dictionary<String,JSONDecoder>()
             for (key,val: AnyObject) in dict {
-                collect[key as String] = JSONDecoder(val)
+                collect[key as! String] = JSONDecoder(val)
             }
             value = collect
         } else {
@@ -115,7 +115,7 @@ public class JSONDecoder {
         get {
             if let array = self.value as? NSArray {
                 if array.count > index {
-                    return array[index] as JSONDecoder
+                    return array[index] as! JSONDecoder
                 }
             }
             return JSONDecoder(createError("index: \(index) is greater than array or this is not an Array type."))
@@ -126,7 +126,7 @@ public class JSONDecoder {
         get {
             if let dict = self.value as? NSDictionary {
                 if let value: AnyObject = dict[key] {
-                    return value as JSONDecoder
+                    return value as! JSONDecoder
                 }
             }
             return JSONDecoder(createError("key: \(key) does not exist or this is not a Dictionary type"))
