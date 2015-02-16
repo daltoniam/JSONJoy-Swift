@@ -10,7 +10,7 @@
 		6B3E79D219D35663006071F7 /* JSONJoy.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B3E79D019D35663006071F7 /* JSONJoy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6B3E79D319D35663006071F7 /* JSONJoy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3E79D119D35663006071F7 /* JSONJoy.swift */; };
 		6B3E79DA19D35696006071F7 /* JSONJoyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3E79D819D35696006071F7 /* JSONJoyTests.swift */; };
-		D958023919E6ED8E003C8218 /* JSONJoyOSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D958022E19E6ED8E003C8218 /* JSONJoyOSX.framework */; };
+		D958023919E6ED8E003C8218 /* JSONJoy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D958022E19E6ED8E003C8218 /* JSONJoy.framework */; };
 		D958024719E6EDFB003C8218 /* JSONJoy.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B3E79D019D35663006071F7 /* JSONJoy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D958024819E6EE06003C8218 /* JSONJoy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3E79D119D35663006071F7 /* JSONJoy.swift */; };
 		D958024919E6EE2D003C8218 /* JSONJoyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3E79D819D35696006071F7 /* JSONJoyTests.swift */; };
@@ -34,7 +34,7 @@
 		6B3E79D419D3566C006071F7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
 		6B3E79D719D35696006071F7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B3E79D819D35696006071F7 /* JSONJoyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONJoyTests.swift; sourceTree = "<group>"; };
-		D958022E19E6ED8E003C8218 /* JSONJoyOSX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JSONJoyOSX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D958022E19E6ED8E003C8218 /* JSONJoy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JSONJoy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D958023819E6ED8E003C8218 /* JSONJoyOSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JSONJoyOSXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -64,7 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D958023919E6ED8E003C8218 /* JSONJoyOSX.framework in Frameworks */,
+				D958023919E6ED8E003C8218 /* JSONJoy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,7 +85,7 @@
 			children = (
 				6B3E79B719D355CF006071F7 /* JSONJoy.framework */,
 				6B3E79C219D355CF006071F7 /* JSONJoyTests.xctest */,
-				D958022E19E6ED8E003C8218 /* JSONJoyOSX.framework */,
+				D958022E19E6ED8E003C8218 /* JSONJoy.framework */,
 				D958023819E6ED8E003C8218 /* JSONJoyOSXTests.xctest */,
 			);
 			name = Products;
@@ -190,7 +190,7 @@
 			);
 			name = JSONJoyOSX;
 			productName = JSONJoyOSX;
-			productReference = D958022E19E6ED8E003C8218 /* JSONJoyOSX.framework */;
+			productReference = D958022E19E6ED8E003C8218 /* JSONJoy.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		D958023719E6ED8E003C8218 /* JSONJoyOSXTests */ = {
@@ -496,7 +496,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = JSONJoy;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 			};
@@ -516,7 +516,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = JSONJoy;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 			};
