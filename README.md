@@ -197,11 +197,11 @@ struct Addresses : JSONJoy {
 }
 ```
 
-## JSONJoy
+## SwiftHTTP
 
-This can be combined with JSONJoy to make API interaction really clean and easy.
+This can be combined with SwiftHTTP to make API interaction really clean and easy.
 
-https://github.com/daltoniam/JSONJoy#clientserver-example
+https://github.com/daltoniam/SwiftHTTP#clientserver-example
 
 ## Requirements
 
