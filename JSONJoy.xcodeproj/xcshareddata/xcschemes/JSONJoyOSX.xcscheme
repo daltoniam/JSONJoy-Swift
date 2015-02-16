@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D958022D19E6ED8E003C8218"
-               BuildableName = "JSONJoyOSX.framework"
+               BuildableName = "JSONJoy.framework"
                BlueprintName = "JSONJoyOSX"
                ReferencedContainer = "container:JSONJoy.xcodeproj">
             </BuildableReference>
@@ -57,7 +57,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D958022D19E6ED8E003C8218"
-            BuildableName = "JSONJoyOSX.framework"
+            BuildableName = "JSONJoy.framework"
             BlueprintName = "JSONJoyOSX"
             ReferencedContainer = "container:JSONJoy.xcodeproj">
          </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D958022D19E6ED8E003C8218"
-            BuildableName = "JSONJoyOSX.framework"
+            BuildableName = "JSONJoy.framework"
             BlueprintName = "JSONJoyOSX"
             ReferencedContainer = "container:JSONJoy.xcodeproj">
          </BuildableReference>
@@ -94,7 +94,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D958022D19E6ED8E003C8218"
-            BuildableName = "JSONJoyOSX.framework"
+            BuildableName = "JSONJoy.framework"
             BlueprintName = "JSONJoyOSX"
             ReferencedContainer = "container:JSONJoy.xcodeproj">
          </BuildableReference>
