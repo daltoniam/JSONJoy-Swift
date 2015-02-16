@@ -10,10 +10,7 @@ Also check out this [article](http://vluxe.io/jsonjoy.html) for more information
 First thing is to import the framework. See the Installation instructions on how to add the framework to your project.
 
 ```swift
-//iOS
 import JSONJoy
-//OS X
-import JSONJoyOSX
 ```
 
 ## Example
@@ -197,11 +194,11 @@ struct Addresses : JSONJoy {
 }
 ```
 
-## JSONJoy
+## SwiftHTTP
 
 This can be combined with JSONJoy to make API interaction really clean and easy.
 
-https://github.com/daltoniam/JSONJoy#clientserver-example
+https://github.com/daltoniam/SwiftHTTP#clientserver-example
 
 ## Requirements
 
