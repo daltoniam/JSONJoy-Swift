@@ -12,6 +12,10 @@ import Foundation
 public class JSONDecoder {
     var value: AnyObject?
     
+    //print the description of the JSONDecoder
+    public var description: String {
+        return self.print()
+    }
     //convert the value to a String
     public var string: String? {
         return value as? String
@@ -134,6 +138,32 @@ public class JSONDecoder {
     }
     func createError(text: String) -> NSError {
         return NSError(domain: "JSONJoy", code: 1002, userInfo: [NSLocalizedDescriptionKey: text]);
+    }
+    
+    ///print the decoder in a pretty format. Helpful for debugging.
+    public func print() -> String {
+        if let arr = self.array {
+            var str = "["
+            for decoder in arr {
+                str += decoder.print() + ","
+            }
+            str.removeAtIndex(str.endIndex)
+            return str + "]"
+        } else if let dict = self.dictionary {
+            var str = "{"
+            for (key, decoder) in dict {
+                str += "\"\(key)\": \(decoder.print()),"
+            }
+            str.removeAtIndex(advance(str.endIndex, -1))
+            return str + "}"
+        }
+        if value != nil {
+            if let str = self.string {
+                return "\"\(value!)\""
+            }
+            return "\(value!)"
+        }
+        return ""
     }
 }
 
