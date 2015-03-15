@@ -208,47 +208,20 @@ JSONJoy requires at least iOS 7/OSX 10.10 or above.
 
 ### Cocoapods
 
-### [CocoaPods](http://cocoapods.org/)
-At this time, Cocoapods support for Swift frameworks is supported in a [pre-release](http://blog.cocoapods.org/Pod-Authors-Guide-to-CocoaPods-Frameworks/).
+Check out [Get Started](http://cocoapods.org/) tab on [cocoapods.org](http://cocoapods.org/).
 
-To use JSONJoy in your project add the following 'Podfile' to your project
+To use JSONJoy-Swift in your project add the following 'Podfile' to your project
 
-    source 'https://github.com/CocoaPods/Specs.git'
+	source 'https://github.com/CocoaPods/Specs.git'
+	platform :ios, '8.0'
+	use_frameworks!
 
-    xcodeproj 'YourProjectName.xcodeproj'
-    platform :ios, '8.0'
-
-    pod 'JSONJoy-Swift', :git => "https://github.com/daltoniam/JSONJoy-Swift.git", :tag => "0.9.1"
-
-    target 'YourProjectNameTests' do
-        pod 'JSONJoy-Swift', :git => "https://github.com/daltoniam/JSONJoy-Swift.git", :tag => "0.9.1"
-    end
+	pod 'JSONJoy-Swift', '~> 0.9.1'
 
 Then run:
 
     pod install
 
-#### Updating the Cocoapod
-You can validate JSONJoy-Swift.podspec using:
-
-    pod spec lint JSONJoy-Swift.podspec
-
-This should be tested with a sample project before releasing it. This can be done by adding the following line to a ```Podfile```:
-
-    pod 'JSONJoy-Swift', :git => 'https://github.com/username/JSONJoy-Swift.git'
-
-Then run:
-
-    pod install
-
-If all goes well you are ready to release. First, create a tag and push:
-
-    git tag 'version'
-    git push --tags
-
-Once the tag is available you can send the library to the Specs repo. For this you'll have to follow the instructions in [Getting Setup with Trunk](http://guides.cocoapods.org/making/getting-setup-with-trunk.html).
-
-    pod trunk push JSONJoy-Swift.podspec
 
 ### Carthage
 
