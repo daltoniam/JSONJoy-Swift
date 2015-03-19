@@ -165,6 +165,8 @@ public class JSONDecoder {
         if value != nil {
             if let str = self.string {
                 return "\"\(value!)\""
+            } else if let null = value as? NSNull {
+                return "null"
             }
             return "\(value!)"
         }
