@@ -224,10 +224,12 @@ Then run:
 
 
 ### Carthage
+To integrate JSONJoy into your Xcode project using Carthage, specify it in your `Cartfile`:
+```ogdl
+git "https://github.com/daltoniam/JSONJoy-Swift.git"
+```
+Check out the [Carthage](https://github.com/Carthage/Carthage) docs on how to  [install](https://github.com/Carthage/Carthage#adding-frameworks-to-an-application) a framework. 
 
-Check out the [Carthage](https://github.com/Carthage/Carthage) docs on how to add a install. The `JSONJoy` framework is already setup with shared schemes.
-
-[Carthage Install](https://github.com/Carthage/Carthage#adding-frameworks-to-an-application)
 
 ### Rogue
 
