@@ -36,6 +36,10 @@ public class JSONDecoder {
     public var float: Float? {
         return value as? Float
     }
+    ///convert the value to an NSNumber
+    public var number: NSNumber? {
+        return value as? NSNumber
+    }
     ///treat the value as a bool
     public var bool: Bool {
         if let str = self.string {
