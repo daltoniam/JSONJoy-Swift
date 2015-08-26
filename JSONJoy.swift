@@ -161,7 +161,7 @@ public class JSONDecoder {
             for (key, decoder) in dict {
                 str += "\"\(key)\": \(decoder.print()),"
             }
-            str.removeAtIndex(advance(str.endIndex, -1))
+            str.removeAtIndex(str.endIndex.advancedBy(-1))
             return str + "}"
         }
         if value != nil {
