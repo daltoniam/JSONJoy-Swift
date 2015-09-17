@@ -44,7 +44,7 @@ public class JSONDecoder {
     public var bool: Bool {
         if let str = self.string {
             let lower = str.lowercaseString
-            if lower == "true" || lower.toInt() > 0 {
+            if lower == "true" || Int(lower) > 0 {
                 return true
             }
         } else if let num = self.integer {
@@ -98,13 +98,15 @@ public class JSONDecoder {
     public init(_ raw: AnyObject) {
         var rawObject: AnyObject = raw
         if let data = rawObject as? NSData {
-            var error: NSError?
-            var response: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(), error: &error)
-            if error != nil || response == nil {
+            var response: AnyObject?
+            do {
+                try response = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions())
+                rawObject = response!
+            }
+            catch let error as NSError {
                 value = error
                 return
             }
-            rawObject = response!
         }
         if let array = rawObject as? NSArray {
             var collect = [JSONDecoder]()
@@ -114,7 +116,7 @@ public class JSONDecoder {
             value = collect
         } else if let dict = rawObject as? NSDictionary {
             var collect = Dictionary<String,JSONDecoder>()
-            for (key,val: AnyObject) in dict {
+            for (key,val) in dict {
                 collect[key as! String] = JSONDecoder(val)
             }
             value = collect
@@ -156,20 +158,20 @@ public class JSONDecoder {
             for decoder in arr {
                 str += decoder.print() + ","
             }
-            str.removeAtIndex(advance(str.endIndex, -1))
+            str.removeAtIndex(str.endIndex.advancedBy(-1))
             return str + "]"
         } else if let dict = self.dictionary {
             var str = "{"
             for (key, decoder) in dict {
                 str += "\"\(key)\": \(decoder.print()),"
             }
-            str.removeAtIndex(advance(str.endIndex, -1))
+            str.removeAtIndex(str.endIndex.advancedBy(-1))
             return str + "}"
         }
         if value != nil {
-            if let str = self.string {
+            if let _ = self.string {
                 return "\"\(value!)\""
-            } else if let null = value as? NSNull {
+            } else if let _ = value as? NSNull {
                 return "null"
             }
             return "\(value!)"
