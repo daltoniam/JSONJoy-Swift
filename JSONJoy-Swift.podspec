@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "JSONJoy-Swift"
-  s.version      = "0.9.3"
+  s.version      = "1.0.0"
   s.summary      = "Convert JSON to Swift objects."
   s.homepage     = "https://github.com/daltoniam/JSONJoy-Swift"
   s.license      = 'Apache License, Version 2.0'

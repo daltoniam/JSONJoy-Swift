@@ -5,8 +5,6 @@ Convert JSON to Swift objects. The Objective-C counterpart can be found here: [J
 
 Parsing JSON in Swift has be likened to a trip through Mordor, then JSONJoy would be using eagles for that trip.
 
-Also check out this [article](http://vluxe.io/jsonjoy.html) for more information and examples.
-
 First thing is to import the framework. See the Installation instructions on how to add the framework to your project.
 
 ```swift
@@ -194,6 +192,25 @@ struct Addresses : JSONJoy {
 }
 ```
 
+## Custom Types
+
+If you want to extend JSONJoy to have custom types simple use the `rawValue` property.
+
+```swift
+public extension JSONDecoder {
+    public var unsignedLong: UInt64? {
+        return (rawValue as? NSNumber)?.unsignedLongLongValue
+    }
+}
+
+struct SomeStruct : JSONJoy {
+    let largeValue: UInt64?
+    init(_ decoder: JSONDecoder) {
+        largeValue = decoder.unsignedLong
+    }
+}
+```
+
 ## SwiftHTTP
 
 This can be combined with SwiftHTTP to make API interaction really clean and easy.
@@ -216,7 +233,7 @@ To use JSONJoy-Swift in your project add the following 'Podfile' to your project
 	platform :ios, '8.0'
 	use_frameworks!
 
-	pod 'JSONJoy-Swift', '~> 0.9.1'
+	pod 'JSONJoy-Swift', '~> 1.0.0'
 
 Then run:
 
@@ -224,12 +241,23 @@ Then run:
 
 
 ### Carthage
-To integrate JSONJoy into your Xcode project using Carthage, specify it in your `Cartfile`:
-```ogdl
-git "https://github.com/daltoniam/JSONJoy-Swift.git"
-```
-Check out the [Carthage](https://github.com/Carthage/Carthage) docs on how to  [install](https://github.com/Carthage/Carthage#adding-frameworks-to-an-application) a framework. 
 
+Check out the [Carthage](https://github.com/Carthage/Carthage) docs on how to add a install. The `JSONJoy` framework is already setup with shared schemes.
+
+[Carthage Install](https://github.com/Carthage/Carthage#adding-frameworks-to-an-application)
+
+You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
+
+```bash
+$ brew update
+$ brew install carthage
+```
+
+To integrate JSONJoy into your Xcode project using Carthage, specify it in your `Cartfile`:
+
+```
+github "daltoniam/JSONJoy" >= 1.0.0
+```
 
 ### Rogue
 
