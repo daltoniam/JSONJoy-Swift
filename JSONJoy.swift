@@ -12,6 +12,10 @@ import Foundation
 public class JSONDecoder {
     var value: AnyObject?
     
+    ///return the value raw
+    public var rawValue: AnyObject? {
+        return value
+    }
     ///print the description of the JSONDecoder
     public var description: String {
         return self.print()
