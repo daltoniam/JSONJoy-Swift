@@ -279,7 +279,7 @@ Add the `JSONJoy.xcodeproj` to your Xcode project. Once that is complete, in you
 
 ### Add Copy Frameworks Phase
 
-If you are running this in an OSX app or on a physical iOS device you will need to make sure you add the `JSONJoy.framework` or `JSONJoyOSX.framework` to be included in your app bundle. To do this, in Xcode, navigate to the target configuration window by clicking on the blue project icon, and selecting the application target under the "Targets" heading in the sidebar. In the tab bar at the top of that window, open the "Build Phases" panel. Expand the "Link Binary with Libraries" group, and add `JSONJoy.framework` or `JSONJoyOSX.framework` depending on if you are building an iOS or OSX app. Click on the + button at the top left of the panel and select "New Copy Files Phase". Rename this new phase to "Copy Frameworks", set the "Destination" to "Frameworks", and add `JSONJoy.framework` or `JSONJoyOSX.framework` respectively.
+If you are running this in an OSX app or on a physical iOS device you will need to make sure you add the `JSONJoy.framework` included in your app bundle. To do this, in Xcode, navigate to the target configuration window by clicking on the blue project icon, and selecting the application target under the "Targets" heading in the sidebar. In the tab bar at the top of that window, open the "Build Phases" panel. Expand the "Link Binary with Libraries" group, and add `JSONJoy.framework`. Click on the + button at the top left of the panel and select "New Copy Files Phase". Rename this new phase to "Copy Frameworks", set the "Destination" to "Frameworks", and add `JSONJoy.framework`.
 
 ## TODOs
 
