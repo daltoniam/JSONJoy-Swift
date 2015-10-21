@@ -133,28 +133,6 @@ firstName = decoder[5]["wrongKey"]["MoreWrong"].string
 
 ## Array and Dictionary support
 
-There is two ways to access Arrays and Dictionary. The first is the convenience methods.
-
-```javascript
-{
-    "scopes" : ["Bakersfield", "California", "USA"]
-}
-```
-
-Now for the Swift object.
-```swift
-struct Scopes : JSONJoy {
-    var scopes: Array<String>?
-    init() {
-    }
-    init(_ decoder: JSONDecoder) {
-         decoder.getArray(&scopes) //pass the optional array by reference, it will be allocated if it is not and filled
-    }
-}
-```
-
-The second option is useful for embedded objects.
-
 ```javascript
 {
 	"addresses": [
