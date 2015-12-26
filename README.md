@@ -234,7 +234,7 @@ $ brew install carthage
 To integrate JSONJoy into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```
-github "daltoniam/JSONJoy" >= 1.0.0
+github "daltoniam/JSONJoy-Swift" >= 1.0.0
 ```
 
 ### Rogue
