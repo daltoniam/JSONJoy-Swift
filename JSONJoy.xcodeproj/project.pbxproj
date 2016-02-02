@@ -891,6 +891,7 @@
 				5C135FD11C47392D00AA3A01 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6B3E79B119D355CF006071F7 /* Build configuration list for PBXProject "JSONJoy" */ = {
 			isa = XCConfigurationList;
