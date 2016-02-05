@@ -9,6 +9,10 @@
 
 import Foundation
 
+public enum JSONError: ErrorType {
+    case WrongType
+}
+
 public class JSONDecoder {
     var value: AnyObject?
     
@@ -24,6 +28,7 @@ public class JSONDecoder {
     public var string: String? {
         return value as? String
     }
+
     ///convert the value to an Int
     public var integer: Int? {
         return value as? Int
@@ -72,6 +77,43 @@ public class JSONDecoder {
     public var array: Array<JSONDecoder>? {
         return value as? Array<JSONDecoder>
     }
+    
+    //get the string and have it throw if it doesn't work
+    public func getString() throws -> String {
+        guard let str = string else {throw JSONError.WrongType}
+        return str
+    }
+    
+    //get the int and have it throw if it doesn't work
+    public func getInt() throws -> Int {
+        guard let i = integer else {throw JSONError.WrongType}
+        return i
+    }
+    
+    //get the unsigned and have it throw if it doesn't work
+    public func getUnsigned() throws -> UInt {
+        guard let i = unsigned else {throw JSONError.WrongType}
+        return i
+    }
+    
+    //get the double and have it throw if it doesn't work
+    public func getDouble() throws -> Double {
+        guard let i = double else {throw JSONError.WrongType}
+        return i
+    }
+    
+    //get the Float and have it throw if it doesn't work
+    public func getFloat() throws -> Float {
+        guard let i = float else {throw JSONError.WrongType}
+        return i
+    }
+    
+    //get the number and have it throw if it doesn't work
+    public func getFloat() throws -> NSNumber {
+        guard let i = number else {throw JSONError.WrongType}
+        return i
+    }
+    
     //pull the raw values out of an array
     public func getArray<T>(inout collect: Array<T>?) {
         if let array = value as? Array<JSONDecoder> {
@@ -186,5 +228,5 @@ public class JSONDecoder {
 
 ///Implement this protocol on all objects you want to use JSONJoy with
 public protocol JSONJoy {
-    init(_ decoder: JSONDecoder)
+    init(_ decoder: JSONDecoder) throws
 }
