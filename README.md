@@ -198,7 +198,7 @@ JSONJoy requires at least iOS 7/OSX 10.10 or above.
 
 ## Installation
 
-### Cocoapods
+### CocoaPods
 
 Check out [Get Started](http://cocoapods.org/) tab on [cocoapods.org](http://cocoapods.org/).
 
@@ -208,7 +208,7 @@ To use JSONJoy-Swift in your project add the following 'Podfile' to your project
 	platform :ios, '8.0'
 	use_frameworks!
 
-	pod 'JSONJoy-Swift', '~> 1.1.0'
+	pod 'JSONJoy-Swift', '~> 2.0.0'
 
 Then run:
 
@@ -231,7 +231,7 @@ $ brew install carthage
 To integrate JSONJoy into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```
-github "daltoniam/JSONJoy-Swift" >= 1.1.0
+github "daltoniam/JSONJoy-Swift" >= 2.0.0
 ```
 
 ### Rogue
