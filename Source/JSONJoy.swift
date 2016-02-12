@@ -114,12 +114,6 @@ public class JSONDecoder {
         return i
     }
     
-    //get the bool and have it throw if it doesn't work
-    public func getBool() throws -> Bool {
-        guard let b = bool else {throw JSONError.WrongType}
-        return b
-    }
-    
     //pull the raw values out of an array
     public func getArray<T>(inout collect: Array<T>?) {
         if let array = value as? Array<JSONDecoder> {
