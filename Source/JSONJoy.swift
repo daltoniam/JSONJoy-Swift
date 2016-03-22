@@ -114,6 +114,14 @@ public class JSONDecoder {
         return i
     }
     
+    //get the bool and have it throw if it doesn't work
+    public func getBool() throws -> Bool {
+        if let _ = value as? NSNull {
+            throw JSONError.WrongType
+        }
+        return bool
+    }
+    
     //pull the raw values out of an array
     public func getArray<T>(inout collect: Array<T>?) {
         if let array = value as? Array<JSONDecoder> {
@@ -141,8 +149,11 @@ public class JSONDecoder {
         }
     }
     ///the init that converts everything to something nice
-    public init(_ raw: AnyObject) {
+    public init(_ raw: AnyObject, isSub: Bool = false) {
         var rawObject: AnyObject = raw
+        if let str = rawObject as? String where !isSub {
+            rawObject = str.dataUsingEncoding(NSUTF8StringEncoding)!
+        }
         if let data = rawObject as? NSData {
             var response: AnyObject?
             do {
@@ -157,13 +168,13 @@ public class JSONDecoder {
         if let array = rawObject as? NSArray {
             var collect = [JSONDecoder]()
             for val: AnyObject in array {
-                collect.append(JSONDecoder(val))
+                collect.append(JSONDecoder(val, isSub: true))
             }
             value = collect
         } else if let dict = rawObject as? NSDictionary {
             var collect = Dictionary<String,JSONDecoder>()
             for (key,val) in dict {
-                collect[key as! String] = JSONDecoder(val)
+                collect[key as! String] = JSONDecoder(val, isSub: true)
             }
             value = collect
         } else {
@@ -214,13 +225,13 @@ public class JSONDecoder {
             str.removeAtIndex(str.endIndex.advancedBy(-1))
             return str + "}"
         }
-        if value != nil {
-            if let _ = self.string {
-                return "\"\(value!)\""
+        if let v = value {
+            if let s = self.string {
+                return "\"\(s)\""
             } else if let _ = value as? NSNull {
                 return "null"
             }
-            return "\(value!)"
+            return "\(v)"
         }
         return ""
     }

@@ -36,22 +36,22 @@ We want to translate that JSON to these Swift objects:
 
 ```swift
 struct Address {
-    var objID: Int?
-    var streetAddress: String?
-    var city: String?
-    var state: String?
-    var postalCode: String?
+    let objID: Int?
+    let streetAddress: String?
+    let city: String?
+    let state: String?
+    let postalCode: String?
     init() {
 
     }
 }
 
 struct User {
-    var objID: Int?
-    var firstName: String?
-    var lastName: String?
-    var age: Int?
-    var address = Address()
+    let objID: Int?
+    let firstName: String?
+    let lastName: String?
+    let age: Int?
+    let address = Address()
     init() {
 
     }
@@ -80,11 +80,11 @@ JSONJoy makes this much simpler. We have our Swift objects implement the JSONJoy
 
 ```swift
 struct Address : JSONJoy {
-    var objID: Int
-    var streetAddress: String
-    var city: String
-    var state: String
-    var postalCode: String
+    let objID: Int
+    let streetAddress: String
+    let city: String
+    let state: String
+    let postalCode: String
 
     init(_ decoder: JSONDecoder) throws {
         objID = try decoder["id"].getInt()
@@ -96,11 +96,11 @@ struct Address : JSONJoy {
 }
 
 struct User : JSONJoy {
-    var objID: Int
-    var firstName: String
-    var lastName: String
-    var age: Int
-    var address: Address
+    let objID: Int
+    let firstName: String
+    let lastName: String
+    let age: Int
+    let address: Address
 
     init(_ decoder: JSONDecoder) throws {
         objID = try decoder["id"].getInt()
@@ -156,13 +156,15 @@ firstName = decoder[5]["wrongKey"]["MoreWrong"].string
 
 ```swift
 struct Addresses : JSONJoy {
-    var addresses = [Address]()
+    let addresses: [Address]
 	
     init(_ decoder: JSONDecoder) {
 		guard let addrs = decoder["addresses"].array else {throw JSONError.WrongType}
+		var collect = [Address]()
 		for addrDecoder in addrs {
-			addresses.append(Address(addrDecoder))
+			collect.append(Address(addrDecoder))
 		}
+		addresses = collect
     }
 }
 ```
