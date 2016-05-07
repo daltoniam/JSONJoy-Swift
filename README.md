@@ -85,13 +85,13 @@ struct Address : JSONJoy {
     let city: String
     let state: String
     let postalCode: String
-
+    
     init(_ decoder: JSONDecoder) throws {
-        objID = try decoder["id"].getInt()
-        streetAddress = try decoder["street_address"].getString()
-        city = try decoder["city"].getString()
-        state = try decoder["state"].getString()
-        postalCode = try decoder["postal_code"].getString()
+        objID =         try decoder["id"].get()
+        streetAddress = try decoder["street_address"].get()
+        city =          try decoder["city"].get()
+        state =         try decoder["state"].get()
+        postalCode =    try decoder["postal_code"].get()
     }
 }
 
@@ -101,13 +101,13 @@ struct User : JSONJoy {
     let lastName: String
     let age: Int
     let address: Address
-
+    
     init(_ decoder: JSONDecoder) throws {
-        objID = try decoder["id"].getInt()
-        firstName = try decoder["first_name"].getString()
-        lastName = try decoder["last_name"].getString()
-        age = try decoder["age"].getInt()
-        address = try Address(decoder["address"])
+        objID =     try decoder["id"].get()
+        firstName = try decoder["first_name"].get()
+        lastName =  try decoder["last_name"].get()
+        age =       try decoder["age"].get()
+        address =   try decoder["address"].get()
     }
 }
 ```
@@ -116,8 +116,8 @@ Then when we get the JSON back:
 
 ```swift
 do {
-	var user = try User(JSONDecoder(data))
-	println("city is: \(user.address.city)")
+	let user = try User(JSONDecoder(data))
+	print("city is: \(user.address.city)")
 	//That's it! The object has all the appropriate properties mapped.
 } catch {
 	print("unable to parse the JSON")
@@ -157,14 +157,9 @@ firstName = decoder[5]["wrongKey"]["MoreWrong"].string
 ```swift
 struct Addresses : JSONJoy {
     let addresses: [Address]
-	
-    init(_ decoder: JSONDecoder) {
-		guard let addrs = decoder["addresses"].array else {throw JSONError.WrongType}
-		var collect = [Address]()
-		for addrDecoder in addrs {
-			collect.append(Address(addrDecoder))
-		}
-		addresses = collect
+    
+    init(_ decoder: JSONDecoder) throws {
+        addresses = try decoder["addresses"].get()
     }
 }
 ```
@@ -210,7 +205,7 @@ To use JSONJoy-Swift in your project add the following 'Podfile' to your project
 	platform :ios, '8.0'
 	use_frameworks!
 
-	pod 'JSONJoy-Swift', '~> 2.0.0'
+	pod 'JSONJoy-Swift', '~> 2.1.0'
 
 Then run:
 
@@ -233,7 +228,7 @@ $ brew install carthage
 To integrate JSONJoy into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```
-github "daltoniam/JSONJoy-Swift" >= 2.0.0
+github "daltoniam/JSONJoy-Swift" >= 2.1.0
 ```
 
 ### Rogue
