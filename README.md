@@ -205,7 +205,7 @@ To use JSONJoy-Swift in your project add the following 'Podfile' to your project
 	platform :ios, '8.0'
 	use_frameworks!
 
-	pod 'JSONJoy-Swift', '~> 3.0.0'
+	pod 'JSONJoy-Swift', '~> 2.1.0'
 
 Then run:
 
