@@ -22,7 +22,7 @@ First here is some example JSON we have to parse.
     "last_name": "Smith",
     "age": 25,
     "address": {
-        "id": 1
+        "id": 1,
         "street_address": "2nd Street",
         "city": "Bakersfield",
         "state": "CA",
@@ -138,14 +138,14 @@ firstName = decoder[5]["wrongKey"]["MoreWrong"].string
 {
 	"addresses": [
 	{
-        "id": 1
+        "id": 1,
         "street_address": "2nd Street",
         "city": "Bakersfield",
         "state": "CA",
         "postal_code": 93309
      },
      {
-        "id": 2
+        "id": 2,
         "street_address": "2nd Street",
         "city": "Dallas",
         "state": "TX",
@@ -210,7 +210,7 @@ To use JSONJoy-Swift in your project add the following 'Podfile' to your project
 	platform :ios, '8.0'
 	use_frameworks!
 
-	pod 'JSONJoy-Swift', '~> 2.0.0'
+	pod 'JSONJoy-Swift', '~> 2.0.1'
 
 Then run:
 
