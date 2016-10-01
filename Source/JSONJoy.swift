@@ -168,6 +168,54 @@ open class JSONDecoder {
             }
         }
     }
+    //get the unsigned and have it return nil it doesn't work
+    open func getUnsigned() -> UInt? {
+        return getAsOptional { () throws -> UInt in
+            return try getUnsigned()
+        }
+    }
+    //get the string and have it return nil it doesn't work
+    open func getString() -> String? {
+        return getAsOptional { () throws -> String in
+            return try getString()
+        }
+    }
+    //get the double and have it return nil it doesn't work
+    open func getDouble() -> Double? {
+        return getAsOptional { () throws -> Double in
+            return try getDouble()
+        }
+    }
+    //get the float and have it return nil it doesn't work
+    open func getFloat() -> Float? {
+        return getAsOptional { () throws -> Float in
+            return try getFloat()
+        }
+    }
+    //get the NSNumber and have it return nil it doesn't work
+    open func getFloat() -> NSNumber? {
+        return getAsOptional { () throws -> NSNumber in
+            return try getFloat()
+        }
+    }
+    //get the bool and have it return nil it doesn't work
+    open func getBool() -> Bool? {
+        return getAsOptional { () throws -> Bool in
+            return try getBool()
+        }
+    }
+    //get the int and have it return nil it doesn't work
+    open func getInt() -> Int? {
+        return getAsOptional { () throws -> Int in
+            return try getInt()
+        }
+    }
+    //function used to transform throw -> optional
+    private func getAsOptional<T> (l : () throws -> T) -> T? {
+        do { return try l() }
+        catch { return nil }
+    }
+    
     ///the init that converts everything to something nice
     public init(_ raw: Any, isSub: Bool = false) {
         var rawObject: Any = raw
