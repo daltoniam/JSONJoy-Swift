@@ -71,9 +71,11 @@ open class JSONDecoder {
     }
     ///treat the value as a bool
     open var bool: Bool {
-        if let str = self.string {
+        if let val = self.rawValue as? Bool {
+            return val
+        } else if let str = self.string {
             let lower = str.lowercased()
-            if lower == "true" || Int(lower) > 0 {
+            if lower == "true" || Int(lower) ?? 0 > 0 {
                 return true
             }
         } else if let num = self.integer {
