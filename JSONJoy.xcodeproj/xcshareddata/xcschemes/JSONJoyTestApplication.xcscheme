@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6B3E79B619D355CF006071F7"
-               BuildableName = "JSONJoy.framework"
-               BlueprintName = "JSONJoy"
+               BlueprintIdentifier = "EA3A39431DD36137005061C1"
+               BuildableName = "JSONJoyTestApplication.app"
+               BlueprintName = "JSONJoyTestApplication"
                ReferencedContainer = "container:JSONJoy.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -26,15 +26,16 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6B3E79C119D355CF006071F7"
-               BuildableName = "JSONJoyTests.xctest"
-               BlueprintName = "JSONJoyTests"
+               BlueprintIdentifier = "EA3A39561DD36137005061C1"
+               BuildableName = "JSONJoyTestApplicationTests.xctest"
+               BlueprintName = "JSONJoyTestApplicationTests"
                ReferencedContainer = "container:JSONJoy.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -42,9 +43,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6B3E79B619D355CF006071F7"
-            BuildableName = "JSONJoy.framework"
-            BlueprintName = "JSONJoy"
+            BlueprintIdentifier = "EA3A39431DD36137005061C1"
+            BuildableName = "JSONJoyTestApplication.app"
+            BlueprintName = "JSONJoyTestApplication"
             ReferencedContainer = "container:JSONJoy.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -61,15 +62,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6B3E79B619D355CF006071F7"
-            BuildableName = "JSONJoy.framework"
-            BlueprintName = "JSONJoy"
+            BlueprintIdentifier = "EA3A39431DD36137005061C1"
+            BuildableName = "JSONJoyTestApplication.app"
+            BlueprintName = "JSONJoyTestApplication"
             ReferencedContainer = "container:JSONJoy.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -79,15 +81,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6B3E79B619D355CF006071F7"
-            BuildableName = "JSONJoy.framework"
-            BlueprintName = "JSONJoy"
+            BlueprintIdentifier = "EA3A39431DD36137005061C1"
+            BuildableName = "JSONJoyTestApplication.app"
+            BlueprintName = "JSONJoyTestApplication"
             ReferencedContainer = "container:JSONJoy.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
