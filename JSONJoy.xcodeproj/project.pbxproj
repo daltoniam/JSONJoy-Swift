@@ -20,6 +20,13 @@
 		6B3E79DA19D35696006071F7 /* JSONJoyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3E79D819D35696006071F7 /* JSONJoyTests.swift */; };
 		D958023919E6ED8E003C8218 /* JSONJoy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D958022E19E6ED8E003C8218 /* JSONJoy.framework */; };
 		D958024919E6EE2D003C8218 /* JSONJoyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3E79D819D35696006071F7 /* JSONJoyTests.swift */; };
+		EA3A39471DD36137005061C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3A39461DD36137005061C1 /* AppDelegate.swift */; };
+		EA3A39491DD36137005061C1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3A39481DD36137005061C1 /* ViewController.swift */; };
+		EA3A394C1DD36137005061C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA3A394A1DD36137005061C1 /* Main.storyboard */; };
+		EA3A394E1DD36137005061C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA3A394D1DD36137005061C1 /* Assets.xcassets */; };
+		EA3A39511DD36137005061C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA3A394F1DD36137005061C1 /* LaunchScreen.storyboard */; };
+		EA3A39641DD361A9005061C1 /* JSONJoy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B3E79B719D355CF006071F7 /* JSONJoy.framework */; };
+		EA3A39671DD37CC7005061C1 /* JSONJoyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3E79D819D35696006071F7 /* JSONJoyTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +44,13 @@
 			remoteGlobalIDString = D958022D19E6ED8E003C8218;
 			remoteInfo = JSONJoyOSX;
 		};
+		EA3A39581DD36137005061C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6B3E79AE19D355CF006071F7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EA3A39431DD36137005061C1;
+			remoteInfo = JSONJoyTestApplication;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +66,15 @@
 		6B3E79D819D35696006071F7 /* JSONJoyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONJoyTests.swift; sourceTree = "<group>"; };
 		D958022E19E6ED8E003C8218 /* JSONJoy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JSONJoy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D958023819E6ED8E003C8218 /* JSONJoyOSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JSONJoyOSXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA3A39441DD36137005061C1 /* JSONJoyTestApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSONJoyTestApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA3A39461DD36137005061C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EA3A39481DD36137005061C1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EA3A394B1DD36137005061C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EA3A394D1DD36137005061C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EA3A39501DD36137005061C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EA3A39521DD36137005061C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EA3A39571DD36137005061C1 /* JSONJoyTestApplicationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JSONJoyTestApplicationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA3A395D1DD36137005061C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +129,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EA3A39411DD36137005061C1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA3A39641DD361A9005061C1 /* JSONJoy.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EA3A39541DD36137005061C1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -114,6 +152,8 @@
 			children = (
 				6B3E79B919D355CF006071F7 /* JSONJoy */,
 				6B3E79D619D35696006071F7 /* Tests */,
+				EA3A39451DD36137005061C1 /* JSONJoyTestApplication */,
+				EA3A395A1DD36137005061C1 /* JSONJoyTestApplicationTests */,
 				6B3E79B819D355CF006071F7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -128,6 +168,8 @@
 				5C135EED1C4734BA00AA3A01 /* JSONJoy.framework */,
 				5C135EF61C4734BA00AA3A01 /* JSONJoytvOSTests.xctest */,
 				5C135FCB1C47392D00AA3A01 /* JSONJoy.framework */,
+				EA3A39441DD36137005061C1 /* JSONJoyTestApplication.app */,
+				EA3A39571DD36137005061C1 /* JSONJoyTestApplicationTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -157,6 +199,27 @@
 				6B3E79D819D35696006071F7 /* JSONJoyTests.swift */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		EA3A39451DD36137005061C1 /* JSONJoyTestApplication */ = {
+			isa = PBXGroup;
+			children = (
+				EA3A39461DD36137005061C1 /* AppDelegate.swift */,
+				EA3A39481DD36137005061C1 /* ViewController.swift */,
+				EA3A394A1DD36137005061C1 /* Main.storyboard */,
+				EA3A394D1DD36137005061C1 /* Assets.xcassets */,
+				EA3A394F1DD36137005061C1 /* LaunchScreen.storyboard */,
+				EA3A39521DD36137005061C1 /* Info.plist */,
+			);
+			path = JSONJoyTestApplication;
+			sourceTree = "<group>";
+		};
+		EA3A395A1DD36137005061C1 /* JSONJoyTestApplicationTests */ = {
+			isa = PBXGroup;
+			children = (
+				EA3A395D1DD36137005061C1 /* Info.plist */,
+			);
+			path = JSONJoyTestApplicationTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,13 +385,48 @@
 			productReference = D958023819E6ED8E003C8218 /* JSONJoyOSXTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		EA3A39431DD36137005061C1 /* JSONJoyTestApplication */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EA3A395E1DD36137005061C1 /* Build configuration list for PBXNativeTarget "JSONJoyTestApplication" */;
+			buildPhases = (
+				EA3A39401DD36137005061C1 /* Sources */,
+				EA3A39411DD36137005061C1 /* Frameworks */,
+				EA3A39421DD36137005061C1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JSONJoyTestApplication;
+			productName = JSONJoyTestApplication;
+			productReference = EA3A39441DD36137005061C1 /* JSONJoyTestApplication.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EA3A39561DD36137005061C1 /* JSONJoyTestApplicationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EA3A39611DD36137005061C1 /* Build configuration list for PBXNativeTarget "JSONJoyTestApplicationTests" */;
+			buildPhases = (
+				EA3A39531DD36137005061C1 /* Sources */,
+				EA3A39541DD36137005061C1 /* Frameworks */,
+				EA3A39551DD36137005061C1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EA3A39591DD36137005061C1 /* PBXTargetDependency */,
+			);
+			name = JSONJoyTestApplicationTests;
+			productName = JSONJoyTestApplicationTests;
+			productReference = EA3A39571DD36137005061C1 /* JSONJoyTestApplicationTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		6B3E79AE19D355CF006071F7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 0800;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = Vluxe;
 				TargetAttributes = {
@@ -360,6 +458,15 @@
 						CreatedOnToolsVersion = 6.1;
 						LastSwiftMigration = 0800;
 					};
+					EA3A39431DD36137005061C1 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+					EA3A39561DD36137005061C1 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = EA3A39431DD36137005061C1;
+					};
 				};
 			};
 			buildConfigurationList = 6B3E79B119D355CF006071F7 /* Build configuration list for PBXProject "JSONJoy" */;
@@ -368,6 +475,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 6B3E79AD19D355CF006071F7;
 			productRefGroup = 6B3E79B819D355CF006071F7 /* Products */;
@@ -381,6 +489,8 @@
 				5C135EEC1C4734BA00AA3A01 /* JSONJoytvOS */,
 				5C135EF51C4734BA00AA3A01 /* JSONJoytvOSTests */,
 				5C135FCA1C47392D00AA3A01 /* JSONJoyWatchOS */,
+				EA3A39431DD36137005061C1 /* JSONJoyTestApplication */,
+				EA3A39561DD36137005061C1 /* JSONJoyTestApplicationTests */,
 			);
 		};
 /* End PBXProject section */
@@ -429,6 +539,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		D958023619E6ED8E003C8218 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EA3A39421DD36137005061C1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA3A39511DD36137005061C1 /* LaunchScreen.storyboard in Resources */,
+				EA3A394E1DD36137005061C1 /* Assets.xcassets in Resources */,
+				EA3A394C1DD36137005061C1 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EA3A39551DD36137005061C1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -494,6 +621,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EA3A39401DD36137005061C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA3A39491DD36137005061C1 /* ViewController.swift in Sources */,
+				EA3A39471DD36137005061C1 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EA3A39531DD36137005061C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA3A39671DD37CC7005061C1 /* JSONJoyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -507,7 +651,31 @@
 			target = D958022D19E6ED8E003C8218 /* JSONJoyOSX */;
 			targetProxy = D958023A19E6ED8E003C8218 /* PBXContainerItemProxy */;
 		};
+		EA3A39591DD36137005061C1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EA3A39431DD36137005061C1 /* JSONJoyTestApplication */;
+			targetProxy = EA3A39581DD36137005061C1 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EA3A394A1DD36137005061C1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EA3A394B1DD36137005061C1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EA3A394F1DD36137005061C1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EA3A39501DD36137005061C1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		5C135EFE1C4734BA00AA3A01 /* Debug */ = {
@@ -897,6 +1065,82 @@
 			};
 			name = Release;
 		};
+		EA3A395F1DD36137005061C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = JSONJoyTestApplication/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yannickwinter.JSONJoyTestApplication;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		EA3A39601DD36137005061C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				INFOPLIST_FILE = JSONJoyTestApplication/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yannickwinter.JSONJoyTestApplication;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		EA3A39621DD36137005061C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = JSONJoyTestApplicationTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yannickwinter.JSONJoyTestApplicationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JSONJoyTestApplication.app/JSONJoyTestApplication";
+			};
+			name = Debug;
+		};
+		EA3A39631DD36137005061C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				INFOPLIST_FILE = JSONJoyTestApplicationTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yannickwinter.JSONJoyTestApplicationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JSONJoyTestApplication.app/JSONJoyTestApplication";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -968,6 +1212,24 @@
 			buildConfigurations = (
 				D958024319E6ED8E003C8218 /* Debug */,
 				D958024419E6ED8E003C8218 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EA3A395E1DD36137005061C1 /* Build configuration list for PBXNativeTarget "JSONJoyTestApplication" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA3A395F1DD36137005061C1 /* Debug */,
+				EA3A39601DD36137005061C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EA3A39611DD36137005061C1 /* Build configuration list for PBXNativeTarget "JSONJoyTestApplicationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA3A39621DD36137005061C1 /* Debug */,
+				EA3A39631DD36137005061C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -177,37 +177,37 @@ open class JSONDecoder {
         }
     }
     //get the string and have it return nil it doesn't work
-    open func getString() -> String? {
+    open func getOptionalString() -> String? {
         return getAsOptional { () throws -> String in
             return try getString()
         }
     }
     //get the double and have it return nil it doesn't work
-    open func getDouble() -> Double? {
+    open func getOptionalDouble() -> Double? {
         return getAsOptional { () throws -> Double in
             return try getDouble()
         }
     }
     //get the float and have it return nil it doesn't work
-    open func getFloat() -> Float? {
+    open func getOptionalFloat() -> Float? {
         return getAsOptional { () throws -> Float in
             return try getFloat()
         }
     }
     //get the NSNumber and have it return nil it doesn't work
-    open func getFloat() -> NSNumber? {
+    open func getOptionalFloat() -> NSNumber? {
         return getAsOptional { () throws -> NSNumber in
             return try getFloat()
         }
     }
     //get the bool and have it return nil it doesn't work
-    open func getBool() -> Bool? {
+    open func getOptionalBool() -> Bool? {
         return getAsOptional { () throws -> Bool in
             return try getBool()
         }
     }
     //get the int and have it return nil it doesn't work
-    open func getInt() -> Int? {
+    open func getOptionalInt() -> Int? {
         return getAsOptional { () throws -> Int in
             return try getInt()
         }
@@ -219,60 +219,78 @@ open class JSONDecoder {
     }
     
     ///the init that converts everything to something nice
-    public init(_ raw: Any, isSub: Bool = false) {
-        var rawObject: Any = raw
-        if let str = rawObject as? String , !isSub {
-            rawObject = str.data(using: String.Encoding.utf8)! as Any
-        }
-        if let data = rawObject as? Data {
-            var response: Any?
-            do {
-                try response = JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions())
-                rawObject = response!
-            }
-            catch let error as NSError {
-                value = error
-                return
-            }
-        }
+    public init(_ raw: Any, isSub: Bool = false) throws {
+        let rawObject: Any = try self.getRawObject(rawObject: raw, isSub: isSub)
+        
         if let array = rawObject as? NSArray {
-            var collect = [JSONDecoder]()
-            for val: Any in array {
-                collect.append(JSONDecoder(val, isSub: true))
-            }
-            value = collect as Any?
-        } else if let dict = rawObject as? NSDictionary {
-            var collect = Dictionary<String,JSONDecoder>()
-            for (key,val) in dict {
-                collect[key as! String] = JSONDecoder(val as AnyObject, isSub: true)
-            }
-            value = collect as Any?
+            self.value = try self.collectDecodersFromArray(array: array)
+        }
+        else if let dictionary = rawObject as? Dictionary<String, Any> {
+            self.value = try self.collectDictionaryFromRawObject(dictionary: dictionary)
         } else {
-            value = rawObject
+            self.value = rawObject
         }
     }
-    ///Array access support
-    open subscript(index: Int) -> JSONDecoder {
-        get {
-            if let array = self.value as? NSArray {
-                if array.count > index {
-                    return array[index] as! JSONDecoder
-                }
-            }
-            return JSONDecoder(createError("index: \(index) is greater than array or this is not an Array type."))
+    
+    private func getRawObject(rawObject: Any, isSub: Bool) throws -> Any {
+        var rawObject: Any = rawObject
+        if let rawObjectString = rawObject as? String , !isSub {
+            rawObject = self.rawObjectFromString(rawObjectString: rawObjectString)
         }
-    }
-    ///Dictionary access support
-    open subscript(key: String) -> JSONDecoder {
-        get {
-            if let dict = self.value as? NSDictionary {
-                if let value: Any = dict[key] {
-                    return value as! JSONDecoder
-                }
-            }
-            return JSONDecoder(createError("key: \(key) does not exist or this is not a Dictionary type"))
+        if let rawObjectData = rawObject as? Data {
+            rawObject = try self.rawObjectFromData(rawObjectData: rawObjectData)
         }
+        return rawObject
     }
+    
+    private func rawObjectFromString(rawObjectString: String) -> Any {
+        return rawObjectString.data(using: .utf8)! as Any
+    }
+    
+    private func rawObjectFromData(rawObjectData: Data) throws -> Any {
+        let jsonData = try JSONSerialization.jsonObject(with: rawObjectData, options: JSONSerialization.ReadingOptions()) as Any
+        return jsonData
+    }
+    
+    private func collectDecodersFromArray(array: NSArray) throws -> Any {
+        var collect = [JSONDecoder]()
+        for element: Any in array {
+            collect.append(try JSONDecoder(element, isSub: true))
+        }
+        return collect as Any
+    }
+    
+    public func collectDictionaryFromRawObject(dictionary: Dictionary<String, Any>) throws -> Any {
+        var collect = Dictionary<String,JSONDecoder>()
+        for (key,val) in dictionary {
+            collect[key] = try JSONDecoder(val as AnyObject, isSub: true)
+        }
+        return collect
+    }
+    
+    public func decoderAtIndex(index: Int) throws -> JSONDecoder {
+        guard let array = self.value as? NSArray else {
+            throw createError("given argument is not an Array type.")
+        }
+        if array.count <= index {
+            throw createError("index: \(index) is greater than array.")
+        }
+        guard let value = array[index] as? JSONDecoder else {
+            throw createError("value at index: \(index) is not a JSONDecoder.")
+        }
+        return value
+    }
+    
+    public func decoderForKey(key: String) throws -> JSONDecoder {
+        guard let dict = self.value as? Dictionary<String, Any> else {
+            throw createError("This is not a Dictionary type.")
+        }
+        guard let value = dict[key] as? JSONDecoder else {
+            throw createError("key: \(key) does not exist.")
+        }
+        return value
+    }
+    
     ///private method to create an error
     func createError(_ text: String) -> NSError {
         return NSError(domain: "JSONJoy", code: 1002, userInfo: [NSLocalizedDescriptionKey: text]);
