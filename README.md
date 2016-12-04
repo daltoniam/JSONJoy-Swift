@@ -87,11 +87,11 @@ struct Address : JSONJoy {
     let postalCode: String
 
     init(_ decoder: JSONDecoder) throws {
-        objID = try decoder["id"].getInt()
-        streetAddress = try decoder["street_address"].getString()
-        city = try decoder["city"].getString()
-        state = try decoder["state"].getString()
-        postalCode = try decoder["postal_code"].getString()
+        objID = try decoder["id"].get()
+        streetAddress = try decoder["street_address"].get()
+        city = try decoder["city"].get()
+        state = try decoder["state"].get()
+        postalCode = try decoder["postal_code"].get()
     }
 }
 
@@ -101,13 +101,15 @@ struct User : JSONJoy {
     let lastName: String
     let age: Int
     let address: Address
+    let addresses: [Address]
 
     init(_ decoder: JSONDecoder) throws {
-        objID = try decoder["id"].getInt()
-        firstName = try decoder["first_name"].getString()
-        lastName = try decoder["last_name"].getString()
-        age = try decoder["age"].getInt()
+        objID = try decoder["id"].get()
+        firstName = try decoder["first_name"].get()
+        lastName = try decoder["last_name"].get()
+        age = try decoder["age"].get()
         address = try Address(decoder["address"])
+        addresses = try decoder["addresses"].get() //infers the type and returns a valid array
     }
 }
 ```
@@ -128,64 +130,16 @@ This also has automatic optional validation like most Swift JSON libraries.
 
 ```swift
 //some randomly incorrect key. This will work fine and the property will just be nil.
-firstName = decoder[5]["wrongKey"]["MoreWrong"].string
+firstName = decoder[5]["wrongKey"]["MoreWrong"].getOptional()
 //firstName is nil, but no crashing!
-```
-
-## Array and Dictionary support
-
-```javascript
-{
-	"addresses": [
-	{
-        "id": 1,
-        "street_address": "2nd Street",
-        "city": "Bakersfield",
-        "state": "CA",
-        "postal_code": 93309
-     },
-     {
-        "id": 2,
-        "street_address": "2nd Street",
-        "city": "Dallas",
-        "state": "TX",
-        "postal_code": 12345
-     }]
-}
-```
-
-```swift
-struct Addresses : JSONJoy {
-    let addresses: [Address]
-	
-    init(_ decoder: JSONDecoder) {
-		guard let addrs = decoder["addresses"].array else {throw JSONError.WrongType}
-		var collect = [Address]()
-		for addrDecoder in addrs {
-			collect.append(Address(addrDecoder))
-		}
-		addresses = collect
-    }
-}
 ```
 
 ## Custom Types
 
-If you want to extend JSONJoy to have custom types simple use the `rawValue` property.
+If you to extend a standard Foundation type (you probably won't need to though)
 
 ```swift
-public extension JSONDecoder {
-    public var unsignedLong: UInt64? {
-        return (rawValue as? NSNumber)?.unsignedLongLongValue
-    }
-}
-
-struct SomeStruct : JSONJoy {
-    let largeValue: UInt64?
-    init(_ decoder: JSONDecoder) throws {
-        largeValue = decoder.unsignedLong
-    }
-}
+extension UInt64:   JSONBasicType {}
 ```
 
 ## SwiftHTTP
@@ -200,6 +154,20 @@ JSONJoy requires at least iOS 7/OSX 10.10 or above.
 
 ## Installation
 
+### Swift Package Manager
+
+Add the project as a dependency to your Package.swift:
+```swift
+import PackageDescription
+
+let package = Package(
+    name: "YourProject",
+    dependencies: [
+        .Package(url: "https://github.com/daltoniam/JSONJoy-Swift", majorVersion: 3)
+    ]
+)
+```
+
 ### CocoaPods
 
 Check out [Get Started](http://cocoapods.org/) tab on [cocoapods.org](http://cocoapods.org/).
@@ -210,7 +178,7 @@ To use JSONJoy-Swift in your project add the following 'Podfile' to your project
 	platform :ios, '8.0'
 	use_frameworks!
 
-	pod 'JSONJoy-Swift', '~> 2.0.1'
+	pod 'JSONJoy-Swift', '~> 3.0.0'
 
 Then run:
 
@@ -233,7 +201,7 @@ $ brew install carthage
 To integrate JSONJoy into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```
-github "daltoniam/JSONJoy-Swift" >= 2.0.0
+github "daltoniam/JSONJoy-Swift" >= 3.0.0
 ```
 
 ### Rogue
@@ -260,9 +228,7 @@ If you are running this in an OSX app or on a physical iOS device you will need 
 
 ## TODOs
 
-- [ ] Complete Docs
 - [ ] Add Unit Tests
-- [ ] Add Example Project
 
 ## License
 
