@@ -85,6 +85,7 @@ struct Address : JSONJoy {
     let city: String
     let state: String
     let postalCode: String
+    let streetTwo: String?
 
     init(_ decoder: JSONDecoder) throws {
         objID = try decoder["id"].get()
@@ -92,6 +93,12 @@ struct Address : JSONJoy {
         city = try decoder["city"].get()
         state = try decoder["state"].get()
         postalCode = try decoder["postal_code"].get()
+        streetTwo = decoder["street_two"].getOptional()
+        
+        //just an example of "checking" for a property. 
+        if let meta: String = decoder["meta"].getOptional() {
+            print("found some meta info: \(meta)")
+        }
     }
 }
 
