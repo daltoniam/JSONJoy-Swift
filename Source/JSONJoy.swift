@@ -103,7 +103,23 @@ open class JSONDecoder {
         return value as? [JSONDecoder]
     }
     
-
+    /**
+     get typed `Array` of `JSONJoy` as an optional
+     */
+    public func getOptional<T: JSONJoy>() -> [T]? {
+        guard let a = getOptionalArray() else { return nil }
+        do { return try a.reduce([T]()) { $0.0 + [try T($0.1)] } }
+        catch { return nil }
+    }
+    
+    /**
+     get typed `Array` of `JSONJoy` as an optional
+     */
+    public func getOptional<T: JSONBasicType>() -> [T]? {
+        guard let a = getOptionalArray() else { return nil }
+        do { return try a.reduce([T]()) { $0.0 + [try $0.1.get()] } }
+        catch { return nil }
+    }
     
     /**
      Array access support
