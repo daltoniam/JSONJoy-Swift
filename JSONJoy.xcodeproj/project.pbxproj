@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07B10F491E1E891900A84B75 /* JSONDecoder+Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B10F481E1E891900A84B75 /* JSONDecoder+Description.swift */; };
+		07B10F4A1E1E89A500A84B75 /* JSONDecoder+Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B10F481E1E891900A84B75 /* JSONDecoder+Description.swift */; };
+		07B10F4C1E1E89C900A84B75 /* JSONDecoder+Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B10F481E1E891900A84B75 /* JSONDecoder+Description.swift */; };
+		07B10F4D1E1E89C900A84B75 /* JSONDecoder+Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B10F481E1E891900A84B75 /* JSONDecoder+Description.swift */; };
 		5C135EF71C4734BA00AA3A01 /* JSONJoy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C135EED1C4734BA00AA3A01 /* JSONJoy.framework */; };
 		5C135F061C47350700AA3A01 /* JSONJoyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3E79D819D35696006071F7 /* JSONJoyTests.swift */; };
 		5C135FD71C4739FB00AA3A01 /* JSONJoy.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C135FD51C4739FB00AA3A01 /* JSONJoy.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -40,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		07B10F481E1E891900A84B75 /* JSONDecoder+Description.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "JSONDecoder+Description.swift"; path = "Source/JSONDecoder+Description.swift"; sourceTree = SOURCE_ROOT; };
 		5C135EED1C4734BA00AA3A01 /* JSONJoy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JSONJoy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C135EF61C4734BA00AA3A01 /* JSONJoytvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JSONJoytvOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C135FCB1C47392D00AA3A01 /* JSONJoy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JSONJoy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,6 +142,7 @@
 			children = (
 				5C135FD51C4739FB00AA3A01 /* JSONJoy.h */,
 				5C135FD61C4739FB00AA3A01 /* JSONJoy.swift */,
+				07B10F481E1E891900A84B75 /* JSONDecoder+Description.swift */,
 				6B3E79BA19D355CF006071F7 /* Supporting Files */,
 			);
 			path = JSONJoy;
@@ -443,6 +449,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C135FDD1C4739FB00AA3A01 /* JSONJoy.swift in Sources */,
+				07B10F4C1E1E89C900A84B75 /* JSONDecoder+Description.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,6 +466,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C135FDE1C4739FB00AA3A01 /* JSONJoy.swift in Sources */,
+				07B10F4D1E1E89C900A84B75 /* JSONDecoder+Description.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,6 +475,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C135FDB1C4739FB00AA3A01 /* JSONJoy.swift in Sources */,
+				07B10F491E1E891900A84B75 /* JSONDecoder+Description.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,6 +492,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C135FDC1C4739FB00AA3A01 /* JSONJoy.swift in Sources */,
+				07B10F4A1E1E89A500A84B75 /* JSONDecoder+Description.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
