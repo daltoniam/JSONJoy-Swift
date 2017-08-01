@@ -7,11 +7,14 @@ Parsing JSON in Swift has be likened to a trip through Mordor, then JSONJoy woul
 
 First thing is to import the framework. See the Installation instructions on how to add the framework to your project.
 
+## BREAKING CHANGES
+Please note: - The latest version has had to change JSONDecoder to JSONJoyDecoder to resolve a conflict with Apple's own JSONDecoder implemented in Swift 4. All instances of JSONDecoder will need updating in your project to JSONJoyDecoder.
+
+## Example
+
 ```swift
 import JSONJoy
 ```
-
-## Example
 
 First here is some example JSON we have to parse.
 
@@ -87,7 +90,7 @@ struct Address : JSONJoy {
     let postalCode: String
     let streetTwo: String?
 
-    init(_ decoder: JSONDecoder) throws {
+    init(_ decoder: JSONJoyDecoder) throws {
         objID = try decoder["id"].get()
         streetAddress = try decoder["street_address"].get()
         city = try decoder["city"].get()
@@ -110,7 +113,7 @@ struct User : JSONJoy {
     let address: Address
     let addresses: [Address]
 
-    init(_ decoder: JSONDecoder) throws {
+    init(_ decoder: JSONJoyDecoder) throws {
         objID = try decoder["id"].get()
         firstName = try decoder["first_name"].get()
         lastName = try decoder["last_name"].get()
@@ -125,7 +128,7 @@ Then when we get the JSON back:
 
 ```swift
 do {
-	var user = try User(JSONDecoder(data))
+	var user = try User(JSONJoyDecoder(data))
 	println("city is: \(user.address.city)")
 	//That's it! The object has all the appropriate properties mapped.
 } catch {
