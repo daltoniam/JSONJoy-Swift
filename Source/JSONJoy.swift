@@ -22,7 +22,7 @@ public enum JSONError: Error {
     case wrongType
 }
 
-open class JSONDecoder {
+open class JSONJoyDecoder {
     var value: Any?
     
     /**
@@ -45,15 +45,15 @@ open class JSONDecoder {
             }
         }
         if let array = rawObject as? NSArray {
-            var collect = [JSONDecoder]()
+            var collect = [JSONJoyDecoder]()
             for val: Any in array {
-                collect.append(JSONDecoder(val, isSub: true))
+                collect.append(JSONJoyDecoder(val, isSub: true))
             }
             value = collect as Any?
         } else if let dict = rawObject as? NSDictionary {
-            var collect = Dictionary<String,JSONDecoder>()
+            var collect = Dictionary<String,JSONJoyDecoder>()
             for (key,val) in dict {
-                collect[key as! String] = JSONDecoder(val as AnyObject, isSub: true)
+                collect[key as! String] = JSONJoyDecoder(val as AnyObject, isSub: true)
             }
             value = collect as Any?
         } else {
@@ -99,8 +99,8 @@ open class JSONDecoder {
     /**
      get an array
      */
-    open func getOptionalArray() -> [JSONDecoder]? {
-        return value as? [JSONDecoder]
+    open func getOptionalArray() -> [JSONJoyDecoder]? {
+        return value as? [JSONJoyDecoder]
     }
     
     /**
@@ -124,28 +124,28 @@ open class JSONDecoder {
     /**
      Array access support
      */
-    open subscript(index: Int) -> JSONDecoder {
+    open subscript(index: Int) -> JSONJoyDecoder {
         get {
             if let array = value as? NSArray {
                 if array.count > index {
-                    return array[index] as! JSONDecoder
+                    return array[index] as! JSONJoyDecoder
                 }
             }
-            return JSONDecoder(createError("index: \(index) is greater than array or this is not an Array type."))
+            return JSONJoyDecoder(createError("index: \(index) is greater than array or this is not an Array type."))
         }
     }
     
     /**
      Dictionary access support
      */
-    open subscript(key: String) -> JSONDecoder {
+    open subscript(key: String) -> JSONJoyDecoder {
         get {
             if let dict = value as? NSDictionary {
                 if let value: Any = dict[key] {
-                    return value as! JSONDecoder
+                    return value as! JSONJoyDecoder
                 }
             }
-            return JSONDecoder(createError("key: \(key) does not exist or this is not a Dictionary type"))
+            return JSONJoyDecoder(createError("key: \(key) does not exist or this is not a Dictionary type"))
         }
     }
     
@@ -162,10 +162,10 @@ open class JSONDecoder {
  Implement this protocol on all objects you want to use JSONJoy with
  */
 public protocol JSONJoy {
-    init(_ decoder: JSONDecoder) throws
+    init(_ decoder: JSONJoyDecoder) throws
 }
 
-extension JSONDecoder: CustomStringConvertible {
+extension JSONJoyDecoder: CustomStringConvertible {
     public var description: String {
         if let value = value {
             return String(describing: value)
@@ -175,7 +175,7 @@ extension JSONDecoder: CustomStringConvertible {
     }
 }
 
-extension JSONDecoder: CustomDebugStringConvertible {
+extension JSONJoyDecoder: CustomDebugStringConvertible {
     public var debugDescription: String {
         if let value = value {
             return String(reflecting: value)
