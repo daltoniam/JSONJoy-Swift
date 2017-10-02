@@ -5,6 +5,11 @@ Convert JSON to Swift objects. The Objective-C counterpart can be found here: [J
 
 Parsing JSON in Swift has be likened to a trip through Mordor, then JSONJoy would be using eagles for that trip.
 
+#### Deprecation
+
+The release of Swift 4 brought support for the new `Codable` protocol. This renders most of JSONJoy unneccessary and thus will be deprecated. Version 3.0.2 has been update to support Swift 4 as a means of backward compatibility, but I would encourage the adoption of the new `Codable` protocol. I wrote a post about it [here](vluxe.io/codable-json-swift.html) 
+
+
 First thing is to import the framework. See the Installation instructions on how to add the framework to your project.
 
 ```swift
@@ -87,7 +92,7 @@ struct Address : JSONJoy {
     let postalCode: String
     let streetTwo: String?
 
-    init(_ decoder: JSONDecoder) throws {
+    init(_ decoder: JSONLoader) throws {
         objID = try decoder["id"].get()
         streetAddress = try decoder["street_address"].get()
         city = try decoder["city"].get()
@@ -110,7 +115,7 @@ struct User : JSONJoy {
     let address: Address
     let addresses: [Address]
 
-    init(_ decoder: JSONDecoder) throws {
+    init(_ decoder: JSONLoader) throws {
         objID = try decoder["id"].get()
         firstName = try decoder["first_name"].get()
         lastName = try decoder["last_name"].get()
@@ -125,7 +130,7 @@ Then when we get the JSON back:
 
 ```swift
 do {
-	var user = try User(JSONDecoder(data))
+	var user = try User(JSONLoader(data))
 	println("city is: \(user.address.city)")
 	//That's it! The object has all the appropriate properties mapped.
 } catch {
@@ -185,7 +190,7 @@ To use JSONJoy-Swift in your project add the following 'Podfile' to your project
 	platform :ios, '8.0'
 	use_frameworks!
 
-	pod 'JSONJoy-Swift', '~> 3.0.0'
+	pod 'JSONJoy-Swift', '~> 3.0.2'
 
 Then run:
 
@@ -208,7 +213,7 @@ $ brew install carthage
 To integrate JSONJoy into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```
-github "daltoniam/JSONJoy-Swift" >= 3.0.0
+github "daltoniam/JSONJoy-Swift" >= 3.0.2
 ```
 
 ### Rogue
