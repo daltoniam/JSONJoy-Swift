@@ -66,7 +66,7 @@ open class JSONLoader {
      */
     public func get<T: JSONJoy>() throws -> [T] {
         guard let a = getOptionalArray() else { throw JSONError.wrongType }
-        return try a.reduce([T]()) { $0.0 + [try T($0.1)] }
+        return try a.reduce([T]()) { $0 + [try T($1)] }
     }
     
     /**
@@ -74,7 +74,7 @@ open class JSONLoader {
      */
     open func get<T: JSONBasicType>() throws -> [T] {
         guard let a = getOptionalArray() else { throw JSONError.wrongType }
-        return try a.reduce([T]()) { $0.0 + [try $0.1.get()] }
+        return try a.reduce([T]()) { $0 + [try $1.get()] }
     }
     
     /**
@@ -108,7 +108,7 @@ open class JSONLoader {
      */
     public func getOptional<T: JSONJoy>() -> [T]? {
         guard let a = getOptionalArray() else { return nil }
-        do { return try a.reduce([T]()) { $0.0 + [try T($0.1)] } }
+        do { return try a.reduce([T]()) { $0 + [try T($1)] } }
         catch { return nil }
     }
     
@@ -117,7 +117,7 @@ open class JSONLoader {
      */
     public func getOptional<T: JSONBasicType>() -> [T]? {
         guard let a = getOptionalArray() else { return nil }
-        do { return try a.reduce([T]()) { $0.0 + [try $0.1.get()] } }
+        do { return try a.reduce([T]()) { $0 + [try $1.get()] } }
         catch { return nil }
     }
     
